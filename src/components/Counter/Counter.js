@@ -1,16 +1,18 @@
 import React from "react"
 
+import { Button } from "./Counter.styled"
+
 const Counter = ({ good, neutral, bad }) => {
     
     return (
         <div> 
             <div className="Counter">
-                <button type="button" onClick={good}>
-                    Goog</button>
-                <button type="button" onClick={neutral}>
-                    Neutral</button>
-                <button type="button" onClick={bad}>
-                    Bad</button>
+                <Button type="button" onClick={good}>
+                    Good</Button>
+                <Button type="button" onClick={neutral}>
+                    Neutral</Button>
+                <Button type="button" onClick={bad}>
+                    Bad</Button>
             </div>
         </div>
   );

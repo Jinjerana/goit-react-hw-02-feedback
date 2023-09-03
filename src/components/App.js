@@ -4,6 +4,7 @@ import Section from "./Section";
 import Counter from "./Counter";
 import Statistics from "./Statistics";
 
+
 class App extends Component {
   state = {
     good: 0,
@@ -11,26 +12,22 @@ class App extends Component {
     bad: 0,
   };
 
-  // leaveFeedback = e => {
-  //   this.setState({ [e]: this.state[e] + 1 });
-  // };
-
   handleGood = () => {
-    this.setState(prevState => (
+    this.setState(prevState => ( 
         { good: prevState.good + 1,
-        }))
+        }));
 };
 
-handleNeutral = () => {
+  handleNeutral = () => {
     this.setState(prevState => (
         { neutral: prevState.neutral + 1,
-        }))
+        }));
 };
 
-handleBad = () => {
+  handleBad = () => {
     this.setState(prevState => (
         { bad: prevState.bad + 1,
-        }))
+        }));
 };
 
   totalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
@@ -39,30 +36,34 @@ handleBad = () => {
     Math.round((good * 100) / this.totalFeedback(this.state));
 
   render () {
-    const { good, neutral, bad } = this.state;
+    // const { good, neutral, bad } = this.state;
   
     return (
      
       <Section
         title="Please leave feedback">
-          <Counter>
-          title="Please leave feedback"
-          <span className="Counter_value">{this.state.good}</span>
+
+          <Counter
           good={this.handleGood}
-      neutral={this.handleNeutral}
-      bad={this.handleBad}
+          neutral={this.handleNeutral}
+          bad={this.handleBad}
+          />
+
+          
+
       {/* options={Object.keys(this.state)}
       onLeaveFeedback={this.leaveFeedback} */}
-          </Counter>
+         
       
-      <Statistics>
-      onGood={good}
-      onNeutral={neutral}
-      bad={bad}
+         <Statistics
+      currentGood={this.state.good}
+      currentNeutral={this.state.neutral}
+      currentBad={this.state.bad}
       total={this.totalFeedback(this.state)}
       positivePercentage={this.positiveFeedback(
         this.state)}
-        </Statistics>
+      
+        />
 
         </Section>
      

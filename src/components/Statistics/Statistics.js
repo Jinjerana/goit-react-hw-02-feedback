@@ -1,25 +1,30 @@
 import React from "react";
+import Notification from "../Notification"
+
+import { Title, Li,  } from "./Statistics.styled"
 
 const Statistics = ({
-    good,
-  neutral,
-  bad,
+    currentGood = 0,
+  currentNeutral = 0,
+  currentBad = 0,
   total = 0,
   positivePercentage = 0,
-  }) => { {
-        return (
+  
+  }) => { 
+        return total ? (
         <div>
-        <h1>Statistics</h1>
+        <Title>Statistics</Title>
         <ul>
-            <li>Good: <span>{good}</span> </li>
-            <li>Neutral: <span>{neutral}</span></li>
-            <li>Bad: <span>{bad}</span></li>
-            <li>Total: <span>{total}</span></li>
-            <li>Positive Feedback: <span>{positivePercentage}</span></li>
+            <Li>Good: <span>{currentGood}</span> </Li>
+            <Li>Neutral: <span>{currentNeutral}</span></Li>
+            <Li>Bad: <span>{currentBad}</span></Li>
+            <Li>Total: <span>{total}</span></Li>
+            <Li>Positive Feedback: <span>{positivePercentage}</span><span> % </span></Li>
         </ul>
         </div>
-        )
+        ) : (
+            <Notification msg="There is no feedback" />
+        ) 
     }
-}
 
 export default Statistics

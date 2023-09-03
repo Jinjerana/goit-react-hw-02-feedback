@@ -1,14 +1,9 @@
 import styled from 'styled-components'
 
-export const Title = styled.h1`
+export const Msg = styled.h2`
 font-size: 22px;
   font-weight: 700;
   color: #000777;
 text-transform: uppercase;
   text-align: left;
-`
-
-export const Li = styled.li`
-font-size: 18px;
-padding-bottom: 8px;
 `
