@@ -12,22 +12,12 @@ class App extends Component {
     bad: 0,
   };
 
-  handleGood = () => {
-    this.setState(prevState => ( 
-        { good: prevState.good + 1,
-        }));
-};
-
-  handleNeutral = () => {
-    this.setState(prevState => (
-        { neutral: prevState.neutral + 1,
-        }));
-};
-
-  handleBad = () => {
-    this.setState(prevState => (
-        { bad: prevState.bad + 1,
-        }));
+  leaveFeedback = (option) => {
+    this.setState((prevState) => {
+      return {
+        [option]: prevState[option] + 1,
+      };
+  });
 };
 
   totalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
@@ -36,7 +26,7 @@ class App extends Component {
     Math.round((good * 100) / this.totalFeedback(this.state));
 
   render () {
-    // const { good, neutral, bad } = this.state;
+    const { good, neutral, bad } = this.state;
   
     return (
      
@@ -44,25 +34,17 @@ class App extends Component {
         title="Please leave feedback">
 
           <Counter
-          good={this.handleGood}
-          neutral={this.handleNeutral}
-          bad={this.handleBad}
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.leaveFeedback}
           />
-
-          
-
-      {/* options={Object.keys(this.state)}
-      onLeaveFeedback={this.leaveFeedback} */}
-         
-      
-         <Statistics
-      currentGood={this.state.good}
-      currentNeutral={this.state.neutral}
-      currentBad={this.state.bad}
+     
+         <Statistics 
+      currentGood={good}
+      currentNeutral={neutral}
+      currentBad={bad}
       total={this.totalFeedback(this.state)}
       positivePercentage={this.positiveFeedback(
         this.state)}
-      
         />
 
         </Section>
@@ -70,6 +52,5 @@ class App extends Component {
     )
   };
 }
-
 
 export default App

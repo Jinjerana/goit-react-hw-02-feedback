@@ -15,7 +15,7 @@ const Statistics = ({
         <div>
         <Title>Statistics</Title>
         <ul>
-            <Li>Good: <span>{currentGood}</span> </Li>
+            <Li>Good: <span>{currentGood}</span></Li>
             <Li>Neutral: <span>{currentNeutral}</span></Li>
             <Li>Bad: <span>{currentBad}</span></Li>
             <Li>Total: <span>{total}</span></Li>
