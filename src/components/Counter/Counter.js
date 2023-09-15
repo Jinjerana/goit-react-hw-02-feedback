@@ -7,16 +7,14 @@ const Counter = ({ options, onLeaveFeedback }) => {
         <div>
             {options.map(option => {
                 return (
-                    <span key={option}>
+                    // <span key={option}>
                         <Button
                         key={option}
-                        typr="button"
-                        value={option}
-                        children={option}
+                        type="button"
                         onClick={() => onLeaveFeedback(option)}>
                             {option}
                         </Button>
-                    </span>
+                    // </span>
                 )
             })}
         </div>
